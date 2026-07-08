@@ -1,0 +1,151 @@
+@import 'projects/fc-ng-shared/src/assets/scss/fcs-style-guide/colors';
+
+.tv-pill {
+  padding: 2px 8px;
+  background-color: var(--fcs-secondary-color);
+  color: var(--fcs-button-text-color);
+  border-radius: 16px;
+  font-weight: normal;
+  font-size: 12px;
+  text-transform: uppercase;
+  border: 0px solid transparent;
+
+  &.primary {
+      background-color: var(--fcs-primary-color);
+  }
+  &.secondary {
+      background-color: var(--fcs-secondary-color);
+  }
+  &.success {
+      background-color: var(--fcs-success-color);
+      &.white {
+          background-color: white;
+          color: var(--fcs-success-color);
+      }
+  }
+  &.error {
+      background-color: var(--fcs-error-color);
+      &.white {
+          background-color: white;
+          color: var(--fcs-error-color);
+      }
+  }
+  &.knockout {
+      background-color: transparent;
+      border: 2px solid var(--fcs-text-color);
+  }
+  &.white {
+      background-color: white;
+      color: var(--fcs-secondary-color);
+  }
+}
+
+// Styles for My RFQ Status Pills
+.itinerary-status-label {
+    font-size: 1.25em;
+    vertical-align: inherit;
+    margin: 10px 5px 0 0;
+}
+
+.itinerary-status-unquoted {
+
+    font-size: 1.25em;
+    font-weight: normal !important;
+    padding: 6px 10px 1px;
+}
+
+.itinerary-status-quoted,
+.itinerary-status-accepted,
+.itinerary-status-confirmed,
+.itinerary-status-cancelled {
+    background-color: var(--fcs-primary-color);
+    margin: 7px;
+    padding: 2px 10px 1px;
+    color: var(--fcs-button-text-color);
+    position: relative;
+    top: 5px;
+    font-size: 1.25em;
+    font-weight: normal !important;
+}
+
+.itinerary-status-quoted {
+    background-color: var(--fcs-primary-color);
+    color: var(--fcs-button-text-color);
+}
+
+.itinerary-status-accepted {
+    background-color: $fcs-pricing-option-green;
+}
+
+.itinerary-status-confirmed {
+    background-color: $fcs-pricing-option-green;
+}
+
+.itinerary-status-cancelled {
+    background-color: $fcs-pricing-option-red;
+}
+
+.itinerary-status-declined {
+    color: var(--fcs-text-color);
+}
+
+.itinerary-status-revision {
+    color: var(--fcs-text-color);
+}
+
+.status-pill {
+  padding: 0 5px;
+
+  font-size: 12px;
+  margin-top: 5px;
+  @media(min-width:1200px) {
+    margin-top: 0;
+  }
+}
+
+// Styles for Pricing Options table Status Pills
+.fcs-status-bg {
+    &.requested {
+      background-color: $fcs-pricing-option-requested;
+    }
+
+    &.quoted {
+      background-color: $fcs-pricing-option-quoted;
+    }
+
+    &.accepted {
+      background-color: $fcs-pricing-option-accepted;
+    }
+
+    &.confirmed {
+      background-color: $fcs-pricing-option-confirmed;
+    }
+
+    &.closed {
+      background-color: $fcs-pricing-option-closed;
+    }
+
+    &.expired {
+      background-color: $fcs-pricing-option-expired;
+    }
+
+    &.cancelled {
+      background-color: $fcs-pricing-option-cancelled;
+    }
+
+    &.declined {
+      background-color: $fcs-pricing-option-declined;
+    }
+
+    &.selected {
+      background-color: $fcs-pricing-option-quoted;
+    }
+  }
+
+  .pricing-options-status {
+    .fcs-status-bg {
+      &.requested {
+        background-color: var(--fcs-success-color);
+      }
+    }
+  }

@@ -1,0 +1,16 @@
+@mixin rgba-bg($hexcolor, $opacity) {
+  background-color: $hexcolor;
+  background-color: rgba($hexcolor, $opacity);
+}
+
+@mixin rgba-border($hexcolor, $opacity) {
+  border-color: $hexcolor;
+  border-color: rgba($hexcolor, $opacity);
+}
+
+.spinner-three-bounce > div {
+  background-color: var(--fcs-text-color) !important;
+}
+html[data-theme="light"] .spinner-three-bounce > div {
+  background-color: var(--fcs-disable-color) !important;
+}

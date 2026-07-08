@@ -1,0 +1,309 @@
+::ng-deep {
+  html, body {
+    background-color: var(--fcs-banking-bg) !important;
+
+    .card {
+      background-color: var(--fcs-table-cell-darken-more) !important;
+    }
+
+
+    fcs-navigation{
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 9999 !important;
+    }
+  }
+}
+
+.btn-group .active {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: bold;
+}
+
+.border-info {
+  border: 2px solid #17a2b8 !important;
+  background-color: #f0faff;
+}
+
+section {
+  margin: .25rem auto;
+  padding: 1rem;
+  border-radius: 6px;
+  background: var(--fcs-bg-4);
+  transition: box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: inset 0 0 5px -3px whitesmoke;
+  }
+}
+
+.card-title {
+  font-size: 0.9rem;
+}
+
+.card {
+  border: none;
+  border-radius: var(--fcs-inputs-border-radius) var(--fcs-inputs-border-radius) 0 0;
+
+  &.form-card {
+    background-color: transparent !important;
+  }
+
+  &:has(.vignette) {
+    background-size: cover;
+  }
+
+
+  .card-header {
+    border-bottom: none !important;
+
+    &.bg-header-read {
+      background: none;
+    }
+
+    &.bg-header-edit {
+      background: none;
+    }
+  }
+}
+
+.card-footer {
+  background-color: var(--fcs-table-cell-darken-more);
+  position: sticky;
+  bottom: 0;
+}
+
+.section-title {
+  text-transform: uppercase;
+  text-align: left;
+  color: var(--fcs-bg-7) !important;
+  text-shadow: 0 -1px 0 var(--fcs-bg-10);
+}
+
+//.table-info th, .table-info td, .table-info thead th, .table-info tbody + tbody {
+//  border-color: var(--fcs-primary-color);
+//  background-color: var(--fcs-bg-3) !important;
+//}
+
+.modal-body {
+  background-color: var(--fcs-banking-bg) !important;
+}
+
+.bg-light {
+  background-color: var(--fcs-bg-3) !important;
+}
+
+@mixin random-bgr() {
+  background: rgb(random(255), random(255), random(255));
+}
+
+//.highlight {
+//  @include random-bgr();
+//}
+
+.variant-pill-container {
+  min-height: 45px;
+  color: var(--fcs-inputs-text-color);
+  //background-color: var(--fcs-inputs-bg-color) !important;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  .badge-pill {
+    //background: var(--fcs-bg-1);
+    background: var(--fcs-primary-color);
+    //@include random-bgr();
+  }
+}
+
+.variant-pill-container:focus-within {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.vignette {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* Placeholder for cards that use BG images. This takes the space of the plane icon. */
+.icon-buffer-lg {
+  height: 48px;
+}
+
+.icon-view-btn-group {
+  button {
+    white-space: nowrap;
+    width: 68px;
+    max-width: 68px;
+    font-size: .85rem;
+    margin: 0 .5rem;
+  }
+}
+
+
+.paginate-select {
+  width: 2rem !important;
+  height: 2rem !important;
+  text-align: center;
+  color: white;
+  border-radius: 4px;
+  font-size: .75rem;
+  background-color: var(--fcs-inputs-bg-color) !important;
+}
+
+.image-upload-thumb {
+  max-width: 100%;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.title-card {
+  border-radius: 0;
+  white-space: nowrap;
+  margin-top: 1rem;
+}
+
+.row-display {
+  .card-body {
+    border-bottom: 1px solid var(--fcs-text-color);
+    height: 65px;
+  }
+
+  .vignette {
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 0;
+      background-color: unset;
+    }
+  }
+}
+
+.icon-display {
+}
+
+
+
+.sticky-row-filters {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  user-select: none;
+}
+
+.sticky-row-header {
+  position: sticky;
+  top: 67px;
+  z-index: 999;
+  user-select: none;
+}
+
+.text-primary {
+  color: var(--fcs-primary-color) !important;
+}
+
+.sticky-header{
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+.floating-add-aircraft-button-top,
+.floating-add-aircraft-button-bottom{
+  a{
+    color: var(--fcs-text-color) !important;
+    transition: color linear 250ms;
+    &:hover{
+      text-decoration: none;
+      color: var(--fcs-primary-color) !important;
+    }
+  }
+}
+
+
+button{
+  transition:
+          background-color linear 250ms,
+          color ease-in-out 250ms;
+}
+
+.btn-outline-info{
+  color: var(--fcs-primary-color);
+  border-color: var(--fcs-primary-color);
+
+  &:hover{
+    color: var(--fcs-text-color) !important;
+    background-color: var(--fcs-primary-color) !important;
+  }
+}
+
+.add-aircraft-form-btn{
+  color: var(--fcs-text-color);
+  border-color: var(--fcs-primary-color);
+  background-color: var(--fcs-primary-color) !important;
+  &:hover{
+    color: var(--fcs-text-color) !important;
+    background-color: var(--fcs-secondary-color) !important;
+    border-color: var(--fcs-secondary-color);
+  }
+}
+
+
+
+.border-primary{
+   border:2px solid var(--fcs-primary-color) !important;
+ }
+
+
+.outline-none{
+  outline:none;
+}
+
+.close-icon{
+  font-size: 1rem;
+}
+
+.thumb-icon-container {
+  display: flex;
+  gap: 5px;
+
+  .fa-chain-broken {
+    /* Hide them all by default. */
+    display: none;
+
+
+    /* Only show first broken link if all photo links are broken. */
+    &:first-child {
+      display: block;
+      color: var(--fcs-bg-6) !important;
+
+    }
+  }
+
+  .optional-image-icon {
+    transition: color linear 250ms;
+    color: var(--fcs-primary-color) !important;
+
+    &:hover {
+      color: var(--fcs-text-color) !important;
+    }
+  }
+
+}
+
+
+
+  .manage-aircraft-modal.show{
+    z-index: 1500 !important;
+  }

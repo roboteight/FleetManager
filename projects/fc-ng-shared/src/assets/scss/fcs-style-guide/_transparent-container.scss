@@ -1,0 +1,63 @@
+// TODO: Rename this file to _backgrounds
+.loading-wrapper {
+  .fcs-transparent-wrapper {
+    //background-color: var(--fcs-bg-11);
+    padding: 20px 0px 20px;
+    @media(min-width:768px) {
+      margin: 0 0px 30px;
+    }
+  }
+}
+
+.fcs-transparent-wrapper {
+  //background-color: var(--fcs-bg-11);
+  padding: 20px 15px 20px;
+
+  @media(min-width:768px) {
+    margin: 0 15px 30px;
+  }
+}
+
+.fcs-transparent-wrapper-cards {
+  padding: 20px 15px 10px;
+  margin: 0;
+  @media(min-width:768px) {
+    margin-bottom: 0;
+  }
+}
+
+.fcs-transparent-wrapper-container {
+  padding: 10px 0 0;
+  @media(min-width:992px) {
+    padding: 0;
+  }
+}
+
+.fcs-transparent-wrapper-filter {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px 0 20px;
+  margin: 0;
+}
+
+.fcs-transparent-wrapper-transparent {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px 0 20px;
+
+  @media(min-width:768px) {
+    margin: 0 0 30px 0;
+  }
+}
+
+.fcs-transparent-wrapper-table {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0 0 20px;
+  margin-top: 20px;
+
+  @media(min-width:768px) {
+    margin: 20px 0 30px 0;
+  }
+}
+
+.fcs-bg-black {
+  background-color: var(--fcs-card-bg);
+}

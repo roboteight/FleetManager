@@ -1,0 +1,28 @@
+@import 'projects/fc-ng-shared/src/assets/scss/fcs-style-guide/colors';
+
+.fcs-black-filter {
+    background-color: var(--fcs-bg-5);
+    color: var(--fcs-text-color);
+    padding: 2rem 1rem 0px;
+}
+
+.tv-filters {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--fcs-bg-5);
+    color: var(--fcs-text-color);
+    padding: 2vh 1vw;
+    margin: 0px auto;
+    & > * {
+        flex: 1 1 auto;
+        margin: 0px 20px 0px 0px;
+        &:last-child { margin-right: 0px; }
+    }
+    label { display: block; }
+    @media(max-width: 767px) {
+        flex-direction: column;
+        & > * {
+            margin: 10px 0px;
+        }
+    }
+}

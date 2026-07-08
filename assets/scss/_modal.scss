@@ -1,0 +1,64 @@
+.modal-content {
+  overflow: visible !important;
+  background-color: var(--fcs-bg-4);
+  color: var(--fcs-card-color);
+  border: 1px solid var(--fcs-border-color);
+  .modal-body {
+    padding-bottom: 1.5rem;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @media (min-width: 992px) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+}
+
+body.modal-open {
+  overflow: hidden !important;
+  padding-right: 0px !important;
+}
+
+.modal-dialog {
+  transform: none !important;
+  margin: 4.75rem auto;
+}
+
+.modal-content .close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-weight: normal;
+  z-index: 999;
+  opacity: 1;
+  color: var(--fcs-text-color);
+  text-shadow: none;
+}
+
+.close span img {
+  width: 22px;
+  display: block;
+}
+
+.close > i {
+  color: var(--fcs-text-color) !important;
+}
+
+ngb-modal-window {
+  .modal-dialog {
+    .modal-content {
+      background-color: var(--fcs-bg);
+      border: 1px solid var(--fcs-border-color);
+
+      .modal-header {
+        border: 0;
+      }
+    }
+  }
+}
+
+.manage-aircraft-image-modal,
+.manage-aircraft-modal.show{
+  z-index: 1500 !important;
+}

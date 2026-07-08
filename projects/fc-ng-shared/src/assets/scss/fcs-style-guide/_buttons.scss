@@ -1,0 +1,456 @@
+@import "projects/fc-ng-shared/src/assets/scss/fcs-style-guide/colors";
+
+.clickable {
+    cursor: pointer;
+}
+
+.tv-button {
+    padding: 3px 6px;
+    background-color: var(--fcs-secondary-color);
+    color: var(--fcs-button-text-color);
+    border-radius: $button-border-radius;
+    font-weight: $button-font-weight;
+    font-size: $button-font-size;
+    line-height: inherit;
+    border: 0px solid transparent;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--fcs-button-text-color);
+        text-decoration: none;
+    }
+
+    &.primary {
+        background-color: var(--fcs-primary-color);
+    }
+    &.secondary {
+        background-color: var(--fcs-secondary-color);
+    }
+    &.success {
+        background-color: var(--fcs-success-color);
+        &.white {
+            background-color: white;
+            color: var(--fcs-success-color);
+        }
+    }
+    &.error {
+        background-color: var(--fcs-error-color);
+        &.white {
+            background-color: white;
+            color: var(--fcs-error-color);
+        }
+    }
+    &.knockout {
+        background-color: transparent;
+        border: 2px solid var(--fcs-text-color);
+        color: var(--fcs-text-color);
+    }
+    &.white {
+        background-color: white;
+        color: var(--fcs-secondary-color);
+    }
+    &.link-button {
+        background-color: transparent;
+        color: var(--fcs-primary-color);
+    }
+    
+    &.medium, &.md {
+        padding: 6px 12px;
+    }
+    &.large, &.lg {
+        padding: 8px 16px;
+    }
+    &.xl {
+        padding: 10px 20px;
+        font-size: $button-font-size + 2px;
+    }
+
+    &:disabled, &.disabled {
+        filter: brightness(60%);
+        cursor: not-allowed;
+    }
+
+    &.appended {
+        border-left: 1px solid var(--fcs-inputs-focus-color);
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        margin-left: -1px;
+        
+        &:first-of-type {
+            border-left: 0px solid transparent;
+            border-top-left-radius: $button-border-radius;
+            border-bottom-left-radius: $button-border-radius;
+            margin-left: 0px;
+        }
+        &:last-of-type {
+            border-top-right-radius: $button-border-radius;
+            border-bottom-right-radius: $button-border-radius;
+        }
+    }
+}
+
+.fcs-box-btn {
+    @extend .clickable;
+    @extend .btn;
+
+    color: inherit;
+    border: 1px solid;
+    padding: 2px 10px;
+
+    &:hover {
+        color: inherit;
+    }
+
+    &.active {
+        color: var(--fcs-primary-color);
+    }
+}
+
+// Buttons under body with any skin applied
+body[class$="-skin"],
+.light-blue-skin,
+body {
+    .btn.btn-sm {
+        font-weight: 600;
+
+        &.flight-cmd-table-btn {
+            line-height: 1;
+        }
+    }
+}
+
+.btn {
+    text-transform: none;
+    cursor: pointer;
+    border-radius: 0 !important;
+}
+.btn .fa {
+    vertical-align: middle;
+}
+
+.fcs-btn-sm,
+.tv-btn-sm {
+    font-size: 12px;
+}
+
+.fcs-btn-sky {
+    font-weight: 500;
+    cursor: pointer;
+    &.btn-sm {
+        font-size: 12px;
+        font-weight: 500;
+    }
+    background-color: var(--fcs-primary-color);
+    color: var(--fcs-button-text-color);
+    border-color: transparent;
+
+    &:hover {
+        color: var(--fcs-button-text-color);
+    }
+}
+
+.fcs-btn-rounded {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 22px;
+    font-size: 13px;
+    border-radius: 50%;
+    margin-left: 4px;
+}
+
+//Primary button styles
+.fcs-primary-btn {
+    background: var(--fcs-primary-color);
+    color: var(--fcs-button-text-color);
+    padding: 0 40px !important;
+    min-width: 142px;
+    font-size: 12pt;
+    margin: 6px;
+    height: 33px;
+    border: 0;
+    border-radius: 0 !important;
+    display: inline-block;
+    font-weight: 500;
+    cursor: pointer;
+    -webkit-transition: background-color 0.5s ease-out;
+    -moz-transition: background-color 0.5s ease-out;
+    -o-transition: background-color 0.5s ease-out;
+    transition: background-color 0.5s ease-out;
+
+    &:hover {
+        background-color: var(--fcs-primary-hover);
+        color: var(--fcs-button-text-color);
+        -webkit-transition: background-color 0.5s ease-out;
+        -moz-transition: background-color 0.5s ease-out;
+        -o-transition: background-color 0.5s ease-out;
+        transition: background-color 0.5s ease-out;
+    }
+
+    &:disabled {
+        background: var(--fcs-disable-color);
+        color: var(--fcs-button-text-color);
+        cursor: not-allowed;
+    }
+
+    &.smol {
+        padding: 0;
+    }
+
+    &.white {
+        background: var(--fcs-button-text-color);
+        color: var(--fcs-secondary-color);
+        border: 2px solid var(--fcs-secondary-color);
+    }
+
+    &.outline {
+        background-color: transparent;
+        border: 2px solid var(--fcs-primary-color);
+    }
+}
+
+//Secondary button styles
+.fcs-secondary-btn {
+    background-color: var(--fcs-primary-color);
+    color: var(--fcs-button-text-color);
+    font-size: 1em;
+    margin-right: 0;
+    height: 25px;
+    min-width: 75px;
+    padding: 5px 15px 25px;
+    font-weight: 500;
+    border: 0;
+    cursor: pointer;
+    -webkit-transition: background-color 0.5s ease-out;
+    -moz-transition: background-color 0.5s ease-out;
+    -o-transition: background-color 0.5s ease-out;
+    transition: background-color 0.5s ease-out;
+
+    &:hover {
+        background-color: var(--fcs-primary-color);
+        -webkit-transition: background-color 0.5s ease-out;
+        -moz-transition: background-color 0.5s ease-out;
+        -o-transition: background-color 0.5s ease-out;
+        transition: background-color 0.5s ease-out;
+    }
+}
+
+.fcs-secondary-btn-fix {
+    padding-top: 15px;
+}
+
+//Primary 
+.fcs-table-btn {
+    @extend .fcs-btn-sky;
+    font-size: 1em;
+    margin-right: 0;
+    height: 25px;
+    min-width: 75px;
+    padding: 5px 15px 25px;
+    font-weight: 500;
+    border: 0;
+    border-radius: 5px;
+}
+
+////Card Buttons
+////Primary and Secondary button styles for Card elements
+
+.fcs-primary-card-btn {
+    @extend .fcs-btn-sky;
+    cursor: pointer;
+    border: 1px solid var(--fcs-primary-color) !important;
+    font-size: 1em;
+    margin-right: 0;
+    height: 25px;
+    min-width: 75px;
+    padding: 5px 15px 25px !important;
+    font-weight: 500;
+    font-size: 1em;
+    border: 0;
+    border-radius: 5px;
+    -webkit-transition: background-color 0.5s ease-out;
+    -moz-transition: background-color 0.5s ease-out;
+    -o-transition: background-color 0.5s ease-out;
+    transition: background-color 0.5s ease-out;
+
+    &:hover {
+        background-color: var(--fcs-primary-hover);
+        color: var(--fcs-button-text-color);
+        -webkit-transition: background-color 0.5s ease-out;
+        -moz-transition: background-color 0.5s ease-out;
+        -o-transition: background-color 0.5s ease-out;
+        transition: background-color 0.5s ease-out;
+    }
+}
+
+.fcs-secondary-card-btn {
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid var(--fcs-primary-color) !important;
+    color: var(--fcs-text-color);
+    font-size: 1em;
+    margin-right: 0;
+    height: 25px;
+    min-width: 75px;
+    padding: 5px 15px 25px;
+    font-weight: 500;
+    border: 0;
+    border-radius: 5px;
+    -webkit-transition: background-color 0.5s ease-out;
+    -moz-transition: background-color 0.5s ease-out;
+    -o-transition: background-color 0.5s ease-out;
+    transition: background-color 0.5s ease-out;
+
+    &:hover {
+        background-color: rgba(5, 155, 255, 0.25);
+        color: var(--fcs-button-text-color);
+        -webkit-transition: background-color 0.5s ease-out;
+        -moz-transition: background-color 0.5s ease-out;
+        -o-transition: background-color 0.5s ease-out;
+        transition: background-color 0.5s ease-out;
+    }
+}
+
+
+//End Card Buttons
+
+//Link button styles
+.fcs-link-btn {
+    padding: 0;
+    // min-width:142px;
+    font-size: 1em;
+    margin: 6px;
+    min-height: 25px;
+    border: 0;
+    cursor: pointer;
+
+    // padding: 0.85rem;
+    font-weight: 400;
+    background-color: transparent;
+    color: var(--fcs-primary-color);
+    text-decoration: underline;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.fcs-btn-disable {
+    background: var(--fcs-disable-color);
+    border: 0;
+    color: var(--fcs-button-text-color);
+    font-size: 14px;
+    font-weight: 500;
+    height: 34px;
+    line-height: 19px;
+    margin: 46px 0 51px;
+    min-width: 142px;
+}
+
+.fcs-custom-btn {
+    background-color: var(--fcs-primary-color);
+    border: 0;
+    color: var(--fcs-button-text-color);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    height: 34px;
+    line-height: 19px;
+    margin: 46px 0 51px;
+}
+
+// TODO: Replace class below with bootstrap rounded.
+
+.add-btn.bg {
+    img {
+        width: 58px;
+        height: 58px;
+        margin: auto;
+
+        @media (min-width: 1250px) {
+            width: 98px;
+            height: 98px;
+            margin: 130px auto;
+            display: block;
+            vertical-align: middle;
+            position: relative;
+        }
+    }
+}
+
+.edit-buttons {
+    img {
+        height: 20px;
+        width: 20px;
+        margin-right: 5px;
+    }
+}
+
+.btn {
+    box-shadow: none;
+}
+
+//Footer button styles
+.footer {
+    margin: 1.5rem auto;
+
+    .save {
+        width: 142px;
+        // height:34px;
+    }
+
+    .btn,
+    .cancel {
+        font-size: 12pt;
+        margin: 6px;
+        height: 34px;
+    }
+
+    .save,
+    .cancel {
+        padding: 0;
+    }
+
+    .btn:not(.save, .cancel) {
+        padding: 0 40px;
+    }
+
+    .btn-white {
+        background: white;
+        color: var(--fcs-secondary-color);
+        border: 2px solid var(--fcs-secondary-color);
+    }
+
+    .btn-primary {
+        background: var(--fcs-primary-color);
+        color: var(--fcs-button-text-color);
+        border: 2px solid var(--fcs-primary-color);
+
+        &:hover {
+            background: var(--fcs-primary-hover);
+            color: var(--fcs-button-text-color);
+            border: 2px solid var(--fcs-primary-hover);
+        }
+    }
+}
+
+button.btn.filter-active.dropdown-toggle {
+    font-size: 0.8em;
+}
+
+button[class*="fcs"] > i,
+.tv-button:not(.knockout):not(.white) > i,
+span[class*="-icon"] > i,
+.calendar-button > button > i {
+    color: var(--fcs-button-text-color);
+}
+
+.close > i {
+    color: var(--fcs-text-color) !important;
+}

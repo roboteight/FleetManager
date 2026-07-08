@@ -1,0 +1,31 @@
+@import 'projects/fc-ng-shared/src/assets/scss/fcs-style-guide/colors';
+
+html {
+  --fcs-scrollbar-track-color: #373639; // var(--fcs-bg-10);
+  --fcs-scrollbar-thumb-color: #737276; // var(--fcs-bg-11);
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--fcs-scrollbar-track-color) var(--fcs-scrollbar-thumb-color);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--fcs-scrollbar-track-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--fcs-scrollbar-thumb-color);
+  border-radius: 20px;
+  border: 3px solid var(--fcs-scrollbar-thumb-color);
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--fcs-scrollbar-track-color);
+}
