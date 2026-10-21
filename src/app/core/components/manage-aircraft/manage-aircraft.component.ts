@@ -51,7 +51,6 @@ export class ManageAircraftComponent implements OnInit, OnDestroy {
 
     /* Used to toggle the image thumbnail view in row display. */
     public ttImage = '';
-    public focusedAircraftName: string | undefined;
     public imageTitle: string | undefined;
 
     constructor(

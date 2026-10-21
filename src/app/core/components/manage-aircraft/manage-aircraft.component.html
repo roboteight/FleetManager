@@ -123,7 +123,7 @@
                                         {{ item.type }}
                                         <span
                                                 *ngIf="checkImageBySrc(item.tuvoliExteriorImage ?? ''); else badLink;"
-                                                (mouseenter)="ttImage = item.tuvoliExteriorImage ?? ''; focusedAircraftName = item.type; imageTitle = 'Exterior Image';">
+                                                (mouseenter)="ttImage = item.tuvoliExteriorImage ?? ''; imageTitle = 'Exterior Image';">
                                             <i
                                                     class="fa fa-picture-o mx-1 primary optional-image-icon cursor-pointer"
                                                     aria-hidden="true"
@@ -135,7 +135,7 @@
                                         </span>
                                         <span
                                                 *ngIf="checkImageBySrc(item.tuvoliInteriorImage1 ?? ''); else badLink;"
-                                              (mouseenter)="ttImage = item.tuvoliInteriorImage1 ?? ''; focusedAircraftName = item.type; imageTitle = 'Interior Image 1';">
+                                              (mouseenter)="ttImage = item.tuvoliInteriorImage1 ?? ''; imageTitle = 'Interior Image 1';">
                                             <i
                                                     class="fa fa-picture-o mx-1 primary optional-image-icon cursor-pointer"
                                                     aria-hidden="true"
@@ -148,7 +148,7 @@
                                         </span>
                                         <span
                                                 *ngIf="checkImageBySrc(item.tuvoliInteriorImage2 ?? ''); else badLink;"
-                                                (mouseenter)="ttImage = item.tuvoliInteriorImage2 ?? ''; focusedAircraftName = item.type; imageTitle = 'Interior Image 2';">
+                                                (mouseenter)="ttImage = item.tuvoliInteriorImage2 ?? ''; imageTitle = 'Interior Image 2';">
                                             <i
                                                     class="fa fa-picture-o mx-1 primary optional-image-icon cursor-pointer"
                                                     aria-hidden="true"
