@@ -9,11 +9,15 @@ html {
   --fcs-secondary-color: #095E86;
   --fcs-secondary-hover: #075275;
   --fcs-logo-color: #A90003;
-  --fcs-success-color: #00A37F;
+  --fcs-success-color: #007F63;
   --fcs-error-color: #B7222A;
   --fcs-button-text-color: white;
   --fcs-focus-color: #127BE7;
-  --fcs-link-color: #007bff;
+  --fcs-link-color: #66B3FF;
+  --fcs-primary-text-color: #4CC3FF; // primary used as text; --fcs-primary-color is for fills
+  --fcs-on-primary: #0A1A26; // text/icons on a primary fill
+  --fcs-text-muted: #C8C8C8;
+  --fcs-error-text-color: #FF9AA0;
   --fcs-disable-color: #5A5B5A;
   --fcs-info-color: #2F96B4;
   --fcs-warning-color: #F89406;
@@ -77,8 +81,13 @@ html[data-theme="light"] {
   --fcs-left-nav-bg: var(--fcs-bg-5);
   --fcs-left-nav-hover: var(--fcs-bg-11);
   --fcs-left-nav-active: var(--fcs-bg-12);
-  --fcs-primary-color: #0076D7;
+  --fcs-primary-color: #00589F;
+  --fcs-primary-text-color: #00589F;
+  --fcs-on-primary: #FFFFFF;
   --fcs-secondary-color: #02508F;
+  --fcs-link-color: #0050A0;
+  --fcs-text-muted: #595959;
+  --fcs-error-text-color: #A31D24;
 }
 // 0 1 2 3 4 5 6 7 8 9 A B C D E F
 // F E D C B A 9 8 7 6 5 4 3 2 1 0
@@ -89,6 +98,7 @@ html[data-theme="light"] {
 @import './assets/scss/buttons';
 @import './assets/scss/modal';
 @import './assets/scss/input';
+@import './assets/scss/contrast';
 
 // ng-bootstrap renders tooltip arrows as `.tooltip-arrow` with `.bs-tooltip-start`/`.bs-tooltip-end`
 // placement classes (Bootstrap 5 conventions), but Bootstrap 4 only styles `.arrow` under

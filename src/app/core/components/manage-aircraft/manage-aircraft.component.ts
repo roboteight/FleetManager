@@ -1,7 +1,7 @@
 import {Component, HostListener, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {BehaviorSubject, combineLatest, Subject} from 'rxjs';
-import {takeUntil, tap, withLatestFrom} from 'rxjs/operators';
+import {takeUntil} from 'rxjs/operators';
 import {Aircraft} from "../../interfaces/aircraft";
 import {ManageAircraftService} from "../../services/manage-aircraft/manage-aircraft.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
@@ -110,23 +110,13 @@ export class ManageAircraftComponent implements OnInit, OnDestroy {
                 this.oem = oemOptions?.oem;
             });
 
-        this.filterForm.valueChanges.subscribe(() => {
-            /* Reset on new query. */
-            this.pageIndex = 1;
-        });
+        this.filterForm.valueChanges
+            .pipe(takeUntil(this.destroyed$))
+            .subscribe(() => {
+                /* Reset on new query. */
+                this.pageIndex = 1;
+            });
 
-
-        /*       this.aircraftForm.valueChanges.subscribe((d) => {
-                   if(d?.tuvoliExteriorImage){
-                       this.checkImage(d?.tuvoliExteriorImage)
-                   }
-                   if(d?.tuvoliInteriorImage1){
-                       this.checkImage(d?.tuvoliInteriorImage1)
-                   }
-                   if(d?.tuvoliInteriorImage2){
-                       this.checkImage(d?.tuvoliInteriorImage2)
-                   }
-               });*/
     }
 
     /**
@@ -221,7 +211,7 @@ export class ManageAircraftComponent implements OnInit, OnDestroy {
      */
     public deleteAircraft(id: number): void {
         this.modalService.open(this.deleteConfirmModal, {centered: true, size: 'md', container: 'body', windowClass: 'manage-aircraft-modal'}).result.then(
-            (result) => {
+            () => {
                 this.aircraftService.deleteAircraft(id);
                 this.toastrService.success('Aircraft has been deleted successfully.');
 
@@ -229,9 +219,7 @@ export class ManageAircraftComponent implements OnInit, OnDestroy {
                     this.onReset();
                 }
             },
-            (reason) => {
-                console.log('Deletion cancelled');
-            }
+            () => { /* Deletion cancelled. */ }
         );
     }
 
@@ -243,12 +231,20 @@ export class ManageAircraftComponent implements OnInit, OnDestroy {
         return this.aircraftForm.controls;
     }
 
+    /* The getter is read several times per change-detection pass; only re-filter/sort when an input changed. */
+    private filterCache?: { key: string, source: Aircraft[], result: Aircraft[] };
+
     get filteredAircraft(): Aircraft[] {
         const {search, sizeClass, oem} = this.filterForm.value;
         const searchTerm = (search || '').toLowerCase().trim();
+        const key = JSON.stringify([searchTerm, sizeClass, oem, this.sortColumn, this.sortDirection]);
+
+        if (this.filterCache?.source === this.aircraft && this.filterCache.key === key) {
+            return this.filterCache.result;
+        }
 
         /* FILTERING */
-        let result = this.aircraft.filter(a => {
+        const result = this.aircraft.filter(a => {
             const matchesPrimary = a.type.toLowerCase().includes(searchTerm) ||
                 a.oem.toLowerCase().includes(searchTerm);
             const matchesVariant = a.variants?.some(v => v.toLowerCase().includes(searchTerm));
@@ -258,16 +254,13 @@ export class ManageAircraftComponent implements OnInit, OnDestroy {
         });
 
         /* SORTING */
-        result.sort((a, b) => {
-            const valA = (a as any)[this.sortColumn]?.toString().toLowerCase() || '';
-            const valB = (b as any)[this.sortColumn]?.toString().toLowerCase() || '';
-            const comparison = valA.localeCompare(valB, undefined, {numeric: true, sensitivity: 'base'});
-            return this.sortDirection === 'ASC' ? comparison : -comparison;
-        });
+        const dir = this.sortDirection === 'ASC' ? 1 : -1;
+        const sortKey = (a: Aircraft) => (a as any)[this.sortColumn]?.toString().toLowerCase() || '';
+        result.sort((a, b) => dir * sortKey(a).localeCompare(sortKey(b), undefined, {numeric: true, sensitivity: 'base'}));
 
+        this.filterCache = {key, source: this.aircraft, result};
         return result;
     }
-
 
     setSort(column: string): void {
         if (this.sortColumn === column) {
@@ -295,10 +288,6 @@ export class ManageAircraftComponent implements OnInit, OnDestroy {
             window.scrollTo({top: 400, behavior: 'smooth'}); // Scroll to top of list
         }
     }
-
-
-
-
 
     public addVariant(event: any): void {
         const isEnter = event.key === 'Enter';
@@ -425,14 +414,16 @@ export class ManageAircraftComponent implements OnInit, OnDestroy {
         }
     }
 
-    public checkImageBySrc(inputValue: string) {
-        /* Test if an image exists before attempting to display it. */
-        const imageValue = inputValue;
+    /* One probe <img> per URL, reused across change-detection passes; naturalWidth fills in once it loads. */
+    private imageProbes = new Map<string, HTMLImageElement>();
 
-        /* Use renderer to create a dummy image and check its width. */
-        const img: HTMLImageElement = this.renderer.createElement('img');
-        this.renderer.setAttribute(img, 'src', imageValue);
-
+    public checkImageBySrc(inputValue: string): boolean {
+        let img = this.imageProbes.get(inputValue);
+        if (!img) {
+            img = this.renderer.createElement('img') as HTMLImageElement;
+            this.renderer.setAttribute(img, 'src', inputValue);
+            this.imageProbes.set(inputValue, img);
+        }
         return img.naturalWidth !== 0;
     }
 }

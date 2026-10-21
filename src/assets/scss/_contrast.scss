@@ -1,0 +1,37 @@
+// Bootstrap 4 hardcodes light-theme greys; map them onto the theme tokens so text stays legible in both themes.
+body {
+  color: var(--fcs-text-color);
+}
+
+a:not(.btn) {
+  color: var(--fcs-link-color);
+}
+
+.text-muted {
+  color: var(--fcs-text-muted) !important;
+}
+
+.btn-outline-secondary {
+  color: var(--fcs-text-muted);
+  border-color: var(--fcs-border-color);
+
+  &:hover,
+  &:focus {
+    color: var(--fcs-text-color);
+    background-color: var(--fcs-bg-11);
+    border-color: var(--fcs-border-color);
+  }
+}
+
+.btn-dark {
+  color: var(--fcs-text-color);
+  background-color: var(--fcs-bg-2);
+  border-color: var(--fcs-border-color);
+
+  &:hover,
+  &:focus {
+    color: var(--fcs-text-color);
+    background-color: var(--fcs-bg-11);
+    border-color: var(--fcs-border-color);
+  }
+}

@@ -6,7 +6,6 @@
       background-color: var(--fcs-table-cell-darken-more) !important;
     }
 
-
     fcs-navigation{
       position: sticky !important;
       top: 0 !important;
@@ -16,13 +15,15 @@
 }
 
 .btn-group .active {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--fcs-bg-11);
+  color: var(--fcs-text-color);
   font-weight: bold;
 }
 
 .border-info {
-  border: 2px solid #17a2b8 !important;
-  background-color: #f0faff;
+  border: 2px solid var(--fcs-primary-color) !important;
+  background-color: var(--fcs-bg-3);
+  color: var(--fcs-text-color);
 }
 
 section {
@@ -53,7 +54,6 @@ section {
     background-size: cover;
   }
 
-
   .card-header {
     border-bottom: none !important;
 
@@ -76,14 +76,8 @@ section {
 .section-title {
   text-transform: uppercase;
   text-align: left;
-  color: var(--fcs-bg-7) !important;
-  text-shadow: 0 -1px 0 var(--fcs-bg-10);
+  color: var(--fcs-text-muted) !important;
 }
-
-//.table-info th, .table-info td, .table-info thead th, .table-info tbody + tbody {
-//  border-color: var(--fcs-primary-color);
-//  background-color: var(--fcs-bg-3) !important;
-//}
 
 .modal-body {
   background-color: var(--fcs-banking-bg) !important;
@@ -93,24 +87,14 @@ section {
   background-color: var(--fcs-bg-3) !important;
 }
 
-@mixin random-bgr() {
-  background: rgb(random(255), random(255), random(255));
-}
-
-//.highlight {
-//  @include random-bgr();
-//}
-
 .variant-pill-container {
   min-height: 45px;
   color: var(--fcs-inputs-text-color);
-  //background-color: var(--fcs-inputs-bg-color) !important;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
   .badge-pill {
-    //background: var(--fcs-bg-1);
     background: var(--fcs-primary-color);
-    //@include random-bgr();
+    color: var(--fcs-on-primary);
   }
 }
 
@@ -142,12 +126,11 @@ section {
   }
 }
 
-
 .paginate-select {
   width: 2rem !important;
   height: 2rem !important;
   text-align: center;
-  color: white;
+  color: var(--fcs-inputs-text-color);
   border-radius: 4px;
   font-size: .75rem;
   background-color: var(--fcs-inputs-bg-color) !important;
@@ -190,11 +173,6 @@ section {
   }
 }
 
-.icon-display {
-}
-
-
-
 .sticky-row-filters {
   position: sticky;
   top: 0;
@@ -210,7 +188,7 @@ section {
 }
 
 .text-primary {
-  color: var(--fcs-primary-color) !important;
+  color: var(--fcs-primary-text-color) !important;
 }
 
 .sticky-header{
@@ -226,11 +204,10 @@ section {
     transition: color linear 250ms;
     &:hover{
       text-decoration: none;
-      color: var(--fcs-primary-color) !important;
+      color: var(--fcs-primary-text-color) !important;
     }
   }
 }
-
 
 button{
   transition:
@@ -239,32 +216,29 @@ button{
 }
 
 .btn-outline-info{
-  color: var(--fcs-primary-color);
+  color: var(--fcs-primary-text-color);
   border-color: var(--fcs-primary-color);
 
   &:hover{
-    color: var(--fcs-text-color) !important;
+    color: var(--fcs-on-primary) !important;
     background-color: var(--fcs-primary-color) !important;
   }
 }
 
 .add-aircraft-form-btn{
-  color: var(--fcs-text-color);
+  color: var(--fcs-on-primary);
   border-color: var(--fcs-primary-color);
   background-color: var(--fcs-primary-color) !important;
   &:hover{
-    color: var(--fcs-text-color) !important;
+    color: var(--fcs-button-text-color) !important;
     background-color: var(--fcs-secondary-color) !important;
     border-color: var(--fcs-secondary-color);
   }
 }
 
-
-
 .border-primary{
    border:2px solid var(--fcs-primary-color) !important;
  }
-
 
 .outline-none{
   outline:none;
@@ -282,18 +256,17 @@ button{
     /* Hide them all by default. */
     display: none;
 
-
     /* Only show first broken link if all photo links are broken. */
     &:first-child {
       display: block;
-      color: var(--fcs-bg-6) !important;
+      color: var(--fcs-text-muted) !important;
 
     }
   }
 
   .optional-image-icon {
     transition: color linear 250ms;
-    color: var(--fcs-primary-color) !important;
+    color: var(--fcs-primary-text-color) !important;
 
     &:hover {
       color: var(--fcs-text-color) !important;
@@ -301,8 +274,6 @@ button{
   }
 
 }
-
-
 
   .manage-aircraft-modal.show{
     z-index: 1500 !important;
